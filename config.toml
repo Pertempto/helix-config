@@ -1,0 +1,22 @@
+theme = "base16_transparent"
+
+[editor]
+line-number = "relative"
+mouse = false
+rulers = [80, 120]
+
+[editor.file-picker]
+hidden = false
+
+[editor.soft-wrap]
+enable = true
+
+[editor.statusline]
+center = ["version-control"]
+
+[editor.lsp]
+display-inlay-hints = true
+
+[keys.normal]
+# From https://www.youtube.com/watch?v=p3qvSz4RJts
+C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]

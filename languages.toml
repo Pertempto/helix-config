@@ -22,17 +22,20 @@ auto-format = true
 
 [[language]]
 name = "vue"
-auto-format = true
-scope = "source.vue"
-injection-regex = "vue"
-file-types = ["vue"]
-language-servers = [ "volar", "eslint"]
-formatter = {command = 'prettier', args= ["--parser", "vue"]}
-roots = ["package.json", "vue.config.js", ".prettierrc.json"]
+auto-format = false
+formatter = { command = "prettier", args = ["--parser", "vue"] }
+language-servers = ["volar", "typescript-language-server"]
 
 [language-server.volar]
 command = "vue-language-server"
 args = ["--stdio"]
 
-[language-server.volar.config]
-typescript = { tsdk = "./node_modules/typescript/lib" }
+[[language-server.typescript-language-server.config.plugins]]
+name = "@vue/typescript-plugin"
+location = "/usr/local/lib/node_modules/@vue/typescript-plugin"
+languages = ["vue"]
+
+[[language]]
+name = "typescript"
+
+formatter = { command = "prettier" }

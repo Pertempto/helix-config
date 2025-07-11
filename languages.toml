@@ -25,6 +25,8 @@ auto-format = true
 name = "typescript"
 formatter = { command = "prettier" }
 
+# Vue config from https://github.com/helix-editor/helix/discussions/10691#discussioncomment-10688441
+
 [language-server.typescript-language-server.config]
 plugins = [{ name = "@vue/typescript-plugin", location = "/home/aemig/.local/share/mise/installs/node/24.4.0/lib/node_modules/@vue/typescript-plugin", languages = ["vue"] }]
 

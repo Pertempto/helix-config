@@ -9,7 +9,7 @@ indent = { tab-width = 4, unit = "    " }
 [language-server.astro-ls]
 command = "astro-ls"
 args = ["--stdio"]
-config = { typescript = { tsdk = "/home/addison/.nvm/versions/node/v22.9.0/lib/node_modules/typescript/lib" }}
+config = { typescript = { tsdk = "~/.nvm/versions/node/v22.9.0/lib/node_modules/typescript/lib" }}
 
 [[language]]
 name = "astro"
@@ -20,22 +20,23 @@ language-servers = ["astro-ls"]
 formatter = { command = "prettier", args = ["--plugin", "prettier-plugin-astro", "--parser", "astro"] }
 auto-format = true
 
-[[language]]
-name = "vue"
-auto-format = false
-formatter = { command = "prettier", args = ["--parser", "vue"] }
-language-servers = ["volar", "typescript-language-server"]
-
-[language-server.volar]
-command = "vue-language-server"
-args = ["--stdio"]
-
-[[language-server.typescript-language-server.config.plugins]]
-name = "@vue/typescript-plugin"
-location = "/usr/local/lib/node_modules/@vue/typescript-plugin"
-languages = ["vue"]
 
 [[language]]
 name = "typescript"
-
 formatter = { command = "prettier" }
+
+[language-server.typescript-language-server.config]
+plugins = [{ name = "@vue/typescript-plugin", location = "/home/aemig/.local/share/mise/installs/node/24.4.0/lib/node_modules/@vue/typescript-plugin", languages = ["vue"] }]
+
+[language-server.typescript-language-server.config.vue.inlayHints]
+includeInlayEnumMemberValueHints = true
+includeInlayFunctionLikeReturnTypeHints = true
+includeInlayFunctionParameterTypeHints = true
+includeInlayParameterNameHints = "all"
+includeInlayParameterNameHintsWhenArgumentMatchesName = true
+includeInlayPropertyDeclarationTypeHints = true
+includeInlayVariableTypeHints = true
+
+[[language]]
+name = "vue"
+language-servers = [ "vuels", "typescript-language-server" ]
